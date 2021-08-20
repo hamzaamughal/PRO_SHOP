@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Button, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -56,7 +56,7 @@ const PlaceOrderScreen = ({ history }) => {
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<h2>Payment Method</h2>
-							<strong>Address:</strong>{cart.paymentMethod}
+							<strong>Payment:</strong>{cart.paymentMethod}
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<h2>Order Items</h2>

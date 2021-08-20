@@ -98,7 +98,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
             type: USER_UPDATE_PROFILE_REQUEST,
         })
 
-        const { userLogin: { userInfo } } = getState
+        const { userLogin: { userInfo } } = getState()
 
         const config = {
             headers: {
