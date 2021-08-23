@@ -6,15 +6,34 @@ import Order from '../models/orderModel.js'
 // @route     POST /api/orders
 // @access    Private
 const addOrderItems = expressAsyncHandler(async (req, res) => {
-    const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body
+    const {
+        orderItems,
+        shippingAddress,
+        paymentMethod,
+        itemsPrice,
+        taxPrice,
+        shippingPrice,
+        totalPrice,
+    } = req.body
+
     if (orderItems && orderItems.length === 0) {
         res.status(400)
-        throw new Error('No Order Items')
+        throw new Error('No order items')
+        return
     } else {
         const order = new Order({
-            orderItems, user: req.user._id, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice
+            orderItems,
+            user: req.user._id,
+            shippingAddress,
+            paymentMethod,
+            itemsPrice,
+            taxPrice,
+            shippingPrice,
+            totalPrice,
         })
+
         const createdOrder = await order.save()
+
         res.status(201).json(createdOrder)
     }
 
