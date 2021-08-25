@@ -147,7 +147,7 @@ export const listMyOrder = () => async (dispatch, getState) => {
     }
 }
 
-export const listOrder = () => async (dispatch, getState) => {
+export const listOrders = () => async (dispatch, getState) => {
     try {
         dispatch({
             type: ORDER_LIST_REQUEST,
